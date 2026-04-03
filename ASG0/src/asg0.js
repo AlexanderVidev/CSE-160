@@ -10,9 +10,6 @@ function main() {
 
   ctx = canvas.getContext('2d');
   clearCanvas();
-
-  const { v1 } = getVectorInputs();
-  drawVector(v1, 'red');
 }
 
 function clearCanvas() {
