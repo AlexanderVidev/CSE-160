@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ASG1</title>
+  <style>
+    body {
+      font-family: serif;
+      margin: 30px 50px;
+    }
+
+    #webgl {
+      border: 1px solid black;
+      background: black;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      margin-top: 18px;
+    }
+
+    button {
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+
+    input[type="range"] {
+      width: 120px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    img {
+      margin-top: 10px;
+      max-width: 260px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body onload="main()">
+
+  <canvas id="webgl" width="400" height="400"></canvas>
+
+  <div class="section">
+    <button id="clearButton">Clear Canvas</button>
+    <button id="drawPictureButton">Draw Picture</button>
+  </div>
+
+  <div class="section">
+    <strong>Drawing Mode:</strong><br><br>
+    <button id="pointButton">Squares</button>
+    <button id="triangleButton">Triangles</button>
+    <button id="circleButton">Circles</button>
+  </div>
+
+  <div class="section">
+    <strong>Shape Color:</strong><br><br>
+    Red <input type="range" id="redSlide" min="0" max="100" value="100">
+    Green <input type="range" id="greenSlide" min="0" max="100" value="100">
+    Blue <input type="range" id="blueSlide" min="0" max="100" value="100">
+  </div>
+
+  <div class="section">
+    <strong>Shape Size:</strong>
+    <input type="range" id="sizeSlide" min="5" max="40" value="12">
+
+    <strong>(Circles) Segment Count:</strong>
+    <input type="range" id="segmentSlide" min="3" max="40" value="12">
+  </div>
+
+  <div class="section">
+    <h2>Reference Sketch</h2>
+    <img src="reference_sketch.png" alt="Reference sketch for triangle drawing">
+  </div>
+
+  <script src="../lib/webgl-utils.js"></script>
+  <script src="../lib/webgl-debug.js"></script>
+  <script src="../lib/cuon-utils.js"></script>
+  <script src="Point.js"></script>
+  <script src="Triangle.js"></script>
+  <script src="Circle.js"></script>
+  <script src="asg1.js"></script>
+</body>
+</html>
