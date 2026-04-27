@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ASG2 - Blocky Tiger</title>
+  <style>
+    body {
+      font-family: serif;
+      margin: 30px 50px;
+    }
+
+    #webgl {
+      border: 1px solid black;
+      background: black;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .section {
+      margin-top: 14px;
+    }
+
+    input[type="range"] {
+      width: 160px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    button {
+      margin-right: 8px;
+      margin-top: 4px;
+    }
+
+    #performance {
+      margin-top: 10px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body onload="main()">
+  <h1>Assignment 2: Blocky Tiger</h1>
+
+  <canvas id="webgl" width="500" height="500"></canvas>
+
+  <div id="performance">ms: -- fps: --</div>
+
+  <div class="section">
+    <button id="animationOnButton">Animation On</button>
+    <button id="animationOffButton">Animation Off</button>
+  </div>
+
+  <div class="section">
+    <strong>Global Rotation / Zoom:</strong><br>
+    X <input type="range" id="globalXSlide" min="-180" max="180" value="0">
+    Y <input type="range" id="globalYSlide" min="-180" max="180" value="0">
+    Zoom <input type="range" id="zoomSlide" min="40" max="140" value="80">
+  </div>
+
+  <div class="section">
+    <strong>Manual 3-Level Leg Chain:</strong><br>
+    Upper Leg <input type="range" id="upperLegSlide" min="-45" max="45" value="0">
+    Lower Leg <input type="range" id="lowerLegSlide" min="-45" max="45" value="0">
+    Paw <input type="range" id="pawSlide" min="-45" max="45" value="0">
+  </div>
+
+  <div class="section">
+    <strong>Other Tiger Controls:</strong><br>
+    Tail <input type="range" id="tailSlide" min="-45" max="45" value="0">
+    Head <input type="range" id="headSlide" min="-30" max="30" value="0">
+  </div>
+
+  <p>
+    Use sliders or drag the mouse to rotate the tiger. Shift-click for poke animation.
+  </p>
+
+  <script src="../lib/webgl-utils.js"></script>
+  <script src="../lib/webgl-debug.js"></script>
+  <script src="../lib/cuon-utils.js"></script>
+  <script src="../lib/cuon-matrix-cse160.js"></script>
+
+  <script src="Cube.js"></script>
+  <script src="Cylinder.js"></script>
+  <script src="asg2.js"></script>
+</body>
+</html>
