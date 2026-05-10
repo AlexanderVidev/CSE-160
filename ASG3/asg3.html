@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ASG3 - Virtual World</title>
+  <style>
+    body { font-family: serif; margin: 28px 42px; background: #f7f7f2; }
+    #gameContainer { position: relative; width: 700px; }
+    #webgl { border: 1px solid black; background: black; display: block; margin-bottom: 12px; }
+    button { margin-right: 8px; margin-top: 6px; }
+    #performance { margin-top: 10px; font-family: monospace; }
+    .help { max-width: 760px; line-height: 1.35; }
+    #gameOverlay {
+      display: none;
+      position: absolute;
+      left: 1px;
+      top: 1px;
+      width: 700px;
+      height: 500px;
+      background: rgba(0, 0, 0, 0.72);
+      color: white;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 5;
+    }
+    #gameOverlay h2 { font-size: 42px; margin: 0 0 12px 0; }
+    #gameOverlay p { font-size: 18px; max-width: 520px; margin: 0 auto 16px auto; line-height: 1.35; }
+    #gameOverlay.win h2 { color: #80ffff; }
+    #gameOverlay.caught h2 { color: #ff7777; }
+    .overlayButton {
+      font-size: 16px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body onload="main()">
+  <h1>Assignment 3: Creating a Virtual World</h1>
+
+  <div id="gameContainer">
+    <canvas id="webgl" width="700" height="500"></canvas>
+    <div id="gameOverlay">
+      <h2 id="overlayTitle">Game Message</h2>
+      <p id="overlayMessage">Message</p>
+      <div>
+        <button id="overlayContinueButton" class="overlayButton">Continue</button>
+        <button id="overlayNewMapButton" class="overlayButton">Generate New Map</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <button id="addBlockButton">Add Block in Front (R)</button>
+    <button id="deleteBlockButton">Delete Block in Front (F)</button>
+    <button id="resetButton">Reset Camera</button>
+    <button id="newMapButton">Generate New Random Map</button>
+  </div>
+
+  <div id="performance">ms: -- fps: --</div>
+
+  <p class="help">
+    Controls: Use W/A/S/D to move, Q/E to turn, and drag the mouse left or right to rotate the camera. You can also use the arrow keys for movement and turning. Press R to place a block and F to remove a block. The glowing blue preview shows the block or empty cell you are currently targeting.
+    <br><br>
+    Goal: Explore the randomly generated maze, collect all 5 glowing blue crystals, and avoid the moving guardian tigers. The tigers patrol the maze and chase you when you get close. If a tiger catches you, you are sent back to the start. Collect all crystals to win. Each refresh creates a new maze with different wall heights, crystal locations, and tiger spawn points.
+  </p>
+
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+
+  <script src="camera.js"></script>
+  <script src="Cube.js"></script>
+  <script src="asg3.js"></script>
+</body>
+</html>
