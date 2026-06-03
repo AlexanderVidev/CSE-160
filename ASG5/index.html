@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSE 160 Assignment 5 - Three.js Crystal Island Wow Edition</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="loading">Loading Crystal Island...</div>
+
+    <main id="ui">
+      <section class="panel hero-panel">
+        <h1>Crystal Island</h1>
+        <p class="tagline">Collect the crystals. Wake the beacon. Activate the portal.</p>
+        <p class="controls-text">
+          Mouse controls: drag to orbit, scroll to zoom, and right-drag to pan.
+        </p>
+        <p id="score">Crystals collected: 0 / 5</p>
+        <p id="model-status">GLB model: loading...</p>
+      </section>
+
+      <section class="panel small interactive">
+        <h2>How it works</h2>
+        <p>
+          Explore a floating crystal island made with Three.js. Click the five glowing
+          crystals to charge the center beacon, activate the portal, and unlock the treasure chest.
+        </p>
+        <p class="extras-text">
+          The world includes a day/night switch, camera tour, animated beacon effects,
+          floating particles, clouds, planets, constellations, meteors, shadows,
+          textured objects, a skybox, and a loaded GLB model.
+        </p>
+        <div class="button-row">
+          <button id="tour-toggle" type="button">Start camera tour</button>
+          <button id="day-night-toggle" type="button">Switch to sunrise</button>
+          <button id="reset-crystals" type="button">Reset crystals</button>
+        </div>
+        <p id="feature-status">Explore the island and collect the crystals.</p>
+      </section>
+    </main>
+
+    <script>
+      window.addEventListener('error', function (event) {
+        const loading = document.getElementById('loading');
+        if (!window.__crystalIslandStarted && loading) {
+          loading.innerHTML =
+            'Three.js did not load. Make sure you are online and running the folder with a local server, not opening index.html directly.';
+          loading.classList.add('error');
+        }
+      });
+
+      window.setTimeout(function () {
+        const loading = document.getElementById('loading');
+        if (!window.__crystalIslandStarted && loading) {
+          loading.innerHTML =
+            'Three.js is still not loaded. Start a local server from the project folder: <br><code>python3 -m http.server 8000</code>';
+          loading.classList.add('error');
+        }
+      }, 6000);
+    </script>
+
+    <!-- Same Three.js version is used for the core library, OrbitControls, and GLTFLoader. -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
